@@ -179,6 +179,8 @@ class HttpDownloader(BaseDownloader):
         Args:
             extra_data (dict): Extra data passed by the downloader.
         """
+        import time
+        time.sleep(1)
         async with self.session.get(self.url, proxy=self.proxy) as response:
             response.raise_for_status()
             to_return = await self._handle_response(response)
